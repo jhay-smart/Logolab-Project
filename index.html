@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>logalab.ng – Simplifying Data for Local Accountability</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background-color: #f8f9fa; color: #333; line-height: 1.6; }
+    .navbar { background-color: #0d47a1; }
+    .navbar-brand { font-weight: bold; font-size: 1.5rem; }
+    .nav-link { font-weight: 500; }
+    .carousel-item { height: 600px; position: relative; }
+    .carousel-item img { object-fit: cover; height: 100%; width: 100%; }
+    .carousel-caption {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px 30px;
+      border-radius: 12px;
+      bottom: 50px;
+    }
+    .carousel-caption h2 { font-size: 2.5rem; font-weight: bold; }
+    .section { padding: 80px 20px; }
+    .section h2 { text-align: center; margin-bottom: 40px; font-weight: bold; color: #0d47a1; }
+    .offer-grid, .project-list, .values, .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
+    }
+    .offer, .project, .value, .testimonial, .team-member {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .offer:hover, .project:hover, .value:hover { transform: translateY(-10px); }
+    .offer i { color: #0d47a1; margin-bottom: 15px; }
+    .testimonial { font-style: italic; }
+    .footer {
+      background: #0d47a1;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .footer a { color: #fff; margin: 0 15px; text-decoration: none; font-weight: 500; }
+    .newsletter form {
+      max-width: 500px;
+      margin: 30px auto;
+      display: flex;
+      gap: 10px;
+    }
+    .newsletter input {
+      flex: 1;
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+    }
+    .newsletter button {
+      padding: 12px 30px;
+      background: #0d47a1;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    @media (max-width: 768px) {
+      .carousel-item { height: 400px; }
+      .carousel-caption h2 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">logalab.ng</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#offers">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Slider - Auto-rotating every 5 seconds -->
+<div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://civiliansinconflict.org/wp-content/uploads/2023/05/20210601_121531.jpg" alt="Rural community engagement in Nigeria">
+      <div class="carousel-caption d-none d-md-block">
+        <h2>Empowering Rural Voices</h2>
+        <p>Simplifying data for local accountability • Accountability for development</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://dataphyte.com/wp-content/uploads/2022/06/Anfani-dashboard.png" alt="Interactive data visualization dashboard">
+      <div class="carousel-caption d-none d-md-block">
+        <h2>Interactive Data Insights</h2>
+        <p>Track allocations, budgets, projects, and spending in real-time across 774 LGAs</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://sendbird.imgix.net/cms/Chatbot-UI.webp" alt="AI chatbot interface">
+      <div class="carousel-caption d-none d-md-block">
+        <h2>Meet LocalBuddy</h2>
+        <p>AI-powered assistant answering your questions in English and Pidgin</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://www.budgit.org/wp-content/uploads/2020/07/IMG_20200724_113156.jpg" alt="Youth training and civic engagement">
+      <div class="carousel-caption d-none d-md-block">
+        <h2>Building Capacity</h2>
+        <p>Training youths, CBOs, and citizens to drive accountability</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://images.transparencycdn.org/images/52A7710-1.jpg" alt="Citizens demanding transparency">
+      <div class="carousel-caption d-none d-md-block">
+        <h2>Demanding Transparency</h2>
+        <p>Join the movement for accountable grassroots governance in Nigeria</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+
+<main class="container">
+
+  <!-- Who We Are -->
+  <section id="about" class="section">
+    <h2>Who We Are</h2>
+    <p>Local Government Accountability Lab Nigeria (<strong>logalab.ng</strong>) was born from grassroots experiences in rural communities, where limited access to basic amenities revealed the critical role of local governance.</p>
+    <p>Inspired by volunteer work in 2023 with the Youth Initiative for Good Governance and Development in Bayelsa State, we discovered widespread distrust in government. We are channeling that energy into constructive accountability to drive better governance.</p>
+    <p><strong>Vision:</strong> To be Nigeria’s leading open, accessible, interactive, and simplified local government data hub supporting rural efforts for accountability, transparency, and grassroots development.</p>
+    <p><strong>One-Liner:</strong> Simplifying data for local accountability; Accountability for development.</p>
+  </section>
+
+  <!-- Our Offers -->
+  <section id="offers" class="section bg-light">
+    <h2>Our Offers</h2>
+    <p>We deliver innovative civic tech solutions combining human insight and artificial intelligence to make local government data meaningful and actionable for rural citizens.</p>
+    <div class="offer-grid">
+      <div class="offer">
+        <i class="fas fa-database fa-3x"></i>
+        <h4>Data Accessibility & Simplification</h4>
+        <p>Making complex local government data available and easy to understand for rural communities.</p>
+      </div>
+      <div class="offer">
+        <i class="fas fa-robot fa-3x"></i>
+        <h4>LocalBuddy AI Chatbot</h4>
+        <p>Generative AI assistant providing instant answers in English and Pidgin.</p>
+      </div>
+      <div class="offer">
+        <i class="fas fa-chart-bar fa-3x"></i>
+        <h4>Interactive Data Visualization</h4>
+        <p>Tracking allocations, projects, budgets, and development across all 774 LGAs.</p>
+      </div>
+      <div class="offer">
+        <i class="fas fa-users fa-3x"></i>
+        <h4>Rural Accountability Agents</h4>
+        <p>Training and empowering local residents to monitor and report in real-time.</p>
+      </div>
+      <div class="offer">
+        <i class="fas fa-handshake fa-3x"></i>
+        <h4>Partnerships & Collaboration</h4>
+        <p>Working with CBOs, CSOs, media, and civic tech organizations.</p>
+      </div>
+      <div class="offer">
+        <i class="fas fa-bullhorn fa-3x"></i>
+        <h4>Campaigns & Sensitization</h4>
+        <p>Rural outreach, infographics, and community programs to boost civic engagement.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scheduled Projects -->
+  <section id="projects" class="section">
+    <h2>Upcoming Programs & Milestones</h2>
+    <div class="project-list">
+      <div class="project"><h4>20 Rural Campaigns (Year 1)</h4><p>Sensitization across Bayelsa and Niger Delta communities</p></div>
+      <div class="project"><h4>Train 50 Youths</h4><p>In accountability and civic engagement fundamentals</p></div>
+      <div class="project"><h4>Launch MVP Website & LocalBuddy</h4><p>Interactive platform with integrated AI chatbot</p></div>
+      <div class="project"><h4>Visualize Data for 774 LGAs (Year 2)</h4><p>Full national coverage with 500+ testers</p></div>
+      <div class="project"><h4>25 Multilingual Infographics (Year 3)</h4><p>Distributed to 10,000 citizens online and offline</p></div>
+      <div class="project"><h4>Partner with Major Stakeholders</h4><p>Including BudgIT, CJID Udeme, Dataphyte, and others</p></div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="section bg-light">
+    <h2>Why Choose Us</h2>
+    <div class="values">
+      <div class="value"><h4>Human + AI Approach</h4><p>Combining Rural Accountability Agents with powerful AI for real-time impact</p></div>
+      <div class="value"><h4>Grassroots Focused</h4><p>Designed for rural realities — low literacy, digital divide, and cultural context</p></div>
+      <div class="value"><h4>Data Democratization</h4><p>Making hidden local government data visible and understandable to all</p></div>
+      <div class="value"><h4>Sustainable Partnerships</h4><p>Collaborating with leading civic organizations for lasting change</p></div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section">
+    <h2>What People Say</h2>
+    <div class="offer-grid">
+      <div class="testimonial">
+        <p><strong>“Logalab.ng made it easy to understand our LGA budget — now we can ask the right questions.”</strong></p>
+        <p>— Rural Citizen, Bayelsa</p>
+      </div>
+      <div class="testimonial">
+        <p><strong>“The training and tools have transformed how we hold leaders accountable in our community.”</strong></p>
+        <p>— CBO Leader, Niger Delta</p>
+      </div>
+      <div class="testimonial">
+        <p><strong>“LocalBuddy answers my questions instantly in Pidgin — it's a game-changer!”</strong></p>
+        <p>— Youth Accountability Agent</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section id="team" class="section bg-light">
+    <h2>Our Team</h2>
+    <p>A dedicated team of 7 passionate individuals driving grassroots accountability and development.</p>
+    <div class="team-grid">
+      <div class="team-member"><strong>Co-Founder & Executive Director</strong><br>[Your Name]</div>
+      <div class="team-member"><strong>Director of Data, Policy & Research</strong><br>Kenitimi Biikikoro</div>
+      <div class="team-member"><strong>Head of Community Engagement</strong><br>Walson Sharon</div>
+      <div class="team-member"><strong>Director of Digital Communications</strong><br>Philip Jim</div>
+      <div class="team-member"><strong>Head of Programs</strong><br>Blessed Frank</div>
+      <div class="team-member"><strong>Project Manager</strong><br>Lawson Victor</div>
+      <div class="team-member"><strong>Head of Technology & Civic Impact</strong><br>Yeboah Acquah Endurance</div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter section">
+    <h2>Stay Updated</h2>
+    <p>Get the latest local government data insights, project updates, and campaign alerts.</p>
+    <form>
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div>
+    <a href="#">Data Visualization</a>
+    <a href="#">LocalBuddy AI</a>
+    <a href="#">Rural Agents</a>
+    <a href="#">Partnerships</a>
+    <a href="#">Contact</a>
+  </div>
+  <p>&copy; 2026 logalab.ng • Local Government Accountability Lab Nigeria. All rights reserved.</p>
+</footer>
+
+<!-- Bootstrap JavaScript (required for slider auto-rotation) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
