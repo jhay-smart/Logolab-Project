@@ -68,6 +68,23 @@
       border-radius: 8px;
       cursor: pointer;
     }
+    .team-member img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+    .blog-post img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    .blog-post {
+      max-width: 800px;
+      margin: 0 auto;
+    }
     @media (max-width: 768px) {
       .carousel-item { height: 400px; }
       .carousel-caption h2 { font-size: 1.8rem; }
@@ -90,12 +107,13 @@
         <li class="nav-item"><a class="nav-link" href="#offers">Services</a></li>
         <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
         <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+        <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-<!-- Hero Slider - Auto-rotating every 3 seconds (faster now) -->
+<!-- Hero Slider - Auto-rotating every 3 seconds -->
 <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -142,7 +160,6 @@
   </button>
 </div>
 
-<!-- The rest of the page remains exactly the same as before -->
 <main class="container">
 
   <!-- Who We Are -->
@@ -200,7 +217,7 @@
       <div class="project"><h4>Train 1000 Youths</h4><p>In accountability and civic engagement fundamentals</p></div>
       <div class="project"><h4>Launch MVP Website & LocalBuddy</h4><p>Interactive platform with integrated AI chatbot</p></div>
       <div class="project"><h4>Visualize Data for 774 LGAs</h4><p>Full national coverage with 500+ testers</p></div>
-      <div class="project"><h4>25 Multilingual Infographics</h4><p>Distributed to 10,000 citizens online and offline</p></div>
+      <div class="project"><h4>50 Multilingual Infographics</h4><p>Distributed to 10,000 citizens online and offline</p></div>
       <div class="project"><h4>Partner with Major Stakeholders</h4><p>Including BudgIT, CJID Udeme, Dataphyte, and others</p></div>
     </div>
   </section>
@@ -210,7 +227,7 @@
     <h2>Why Choose Us</h2>
     <div class="values">
       <div class="value"><h4>Human + AI Approach</h4><p>Combining Rural Accountability Agents with powerful AI for real-time impact</p></div>
-      <div class="value"><h4>Grassroots Focused</h4><p>Designed for rural realities — low literacy, digital divide, and cultural context</p></div>
+      <div class="value"><h4>Grassroots Focused</h4><p>Designed for rural realitieslow literacy, digital divide, and cultural context</p></div>
       <div class="value"><h4>Data Democratization</h4><p>Making hidden local government data visible and understandable to all</p></div>
       <div class="value"><h4>Sustainable Partnerships</h4><p>Collaborating with leading civic organizations for lasting change</p></div>
     </div>
@@ -221,16 +238,16 @@
     <h2>What People Say</h2>
     <div class="offer-grid">
       <div class="testimonial">
-        <p><strong>“Logalab.ng made it easy to understand our LGA budget — now we can ask the right questions.”</strong></p>
-        <p>— Rural Citizen, Bayelsa</p>
+        <p><strong>“Logalab.ng made it easy to understand our LGA budget and now we can ask the right questions.”</strong></p>
+        <p>Rural Citizen, Bayelsa</p>
       </div>
       <div class="testimonial">
         <p><strong>“The training and tools have transformed how we hold leaders accountable in our community.”</strong></p>
-        <p>— CBO Leader, Niger Delta</p>
+        <p>CBO Leader, Niger Delta</p>
       </div>
       <div class="testimonial">
-        <p><strong>“LocalBuddy answers my questions instantly in Pidgin — it's a game-changer!”</strong></p>
-        <p>— Youth Accountability Agent</p>
+        <p><strong>“LocalBuddy answers my questions instantly in Pidgin which makes it a game-changer!”</strong></p>
+        <p>Youth Accountability Agent</p>
       </div>
     </div>
   </section>
@@ -238,15 +255,53 @@
   <!-- Team -->
   <section id="team" class="section bg-light">
     <h2>Our Team</h2>
-    <p>A dedicated team of 7 passionate individuals driving grassroots accountability and development.</p>
+    <p>A passionate core team of 5 dedicated to driving local government accountability and grassroots development in Nigeria.</p>
     <div class="team-grid">
-      <div class="team-member"><strong>Co-Founder & Executive Director</strong><br>[Your Name]</div>
-      <div class="team-member"><strong>Director of Data, Policy & Research</strong><br>Kenitimi Biikikoro</div>
-      <div class="team-member"><strong>Head of Community Engagement</strong><br>Walson Sharon</div>
-      <div class="team-member"><strong>Director of Digital Communications</strong><br>Philip Jim</div>
-      <div class="team-member"><strong>Head of Programs</strong><br>Blessed Frank</div>
-      <div class="team-member"><strong>Project Manager</strong><br>Lawson Victor</div>
-      <div class="team-member"><strong>Head of Technology & Civic Impact</strong><br>Yeboah Acquah Endurance</div>
+      <div class="team-member">
+        <img src="asset/Joy.png" alt="Yeboah">
+        <strong>Founder</strong><br>Acqua Nana Yeboah 
+      </div>
+      <div class="team-member">
+        <img src="asset/Joy.png" alt="Joy">
+        <strong>CTO</strong><br>Joy Omale
+      </div>
+      <div class="team-member">
+        <img src="asset/Moshood.jpeg" alt="Moshood Dada">
+        <strong>Data & Research</strong><br>Moshood Dada
+      </div>
+      <div class="team-member">
+        <img src="asset/Ghizlane.jpeg" alt="Ghizlane">
+        <strong>Project Manager</strong><br>Ghizlane
+      </div>
+      <div class="team-member">
+        <img src="asset/Benita.jpeg" alt="Benita">
+        <strong>Program Officer</strong><br>Benita Adomako
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Section -->
+  <section id="blog" class="section">
+    <h2>Our Blog</h2>
+    <div class="blog-post">
+      <h3>Outreach Activity at UM6P: Sensitizing Nigerians on Their Right to Vote</h3>
+      <p><em>Posted on February 2, 2026</em></p>
+      <p>On February 2, 2026, the logalab.ng team organized a successful outreach event at Université Mohammed VI Polytechnique (UM6P) in Morocco. We gathered Nigerians from the community to discuss the fundamental right to vote and its crucial importance in shaping good governance and grassroots development.</p>
+      <p>During the event, we educated participants on how voting empowers citizens to hold leaders accountable, influences local policies, and drives positive change in their communities back home. We shared stories from our past initiatives, like the 2023 PVC registration drive in Bayelsa State, where we reached over 10,000 people and helped 2,000 young adults register to vote for the first time.</p>
+      <p>Activities included interactive sessions, Q&A panels, and group discussions on overcoming voter apathy and the role of technology in civic engagement. We also distributed informational materials and encouraged attendees to become Rural Accountability Agents in their local government areas.</p>
+      <p>The event was a great success, fostering a sense of community and inspiring action among Nigerians abroad. Here are some highlights from the day:</p>
+      <img src= "https://factcheckafrica.net/wp-content/uploads/2025/10/FCA-DEMOCRACY-LAB-IBADAN-96-of-257-780x470.jpg" alt="Nigerian youth civic training workshop" alt="Group discussion at outreach event">
+
+<grok-card data-id="132aa7" data-type="image_card"  data-arg-size="LARGE" ></grok-card>
+
+      <img src="https://bloximages.chicago2.vip.townnews.com/bozemandailychronicle.com/content/tncms/assets/v3/editorial/d/9d/d9d41fa3-722f-5702-8860-cc3954adbc7b/696590c5e6fdf.image.png" alt="Voter education session">
+
+<grok-card data-id="0e64ad" data-type="image_card"  data-arg-size="LARGE" ></grok-card>
+
+      <img src="https://www.smith.edu/sites/default/files/styles/paragraph_image_medium/public/2024-09/smith-in-the-world-conference.jpg.webp?itok=ySJPDzdX" alt="Participants at UM6P event">
+
+<grok-card data-id="426984" data-type="image_card"  data-arg-size="LARGE" ></grok-card>
+
     </div>
   </section>
 
