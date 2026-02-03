@@ -94,9 +94,13 @@
 <body>
 
 <!-- Navigation -->
+<!-- Navigation with Logo -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
   <div class="container">
-    <a class="navbar-brand" href="#">logalab.ng</a>
+    <!-- Logo instead of text -->
+    <a class="navbar-brand" href="#">
+      <img src="asset/logo1.png" alt="logalab.ng Logo" style="height: 45px; width: auto;"> <!-- Adjust height as needed -->
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -168,6 +172,7 @@
     <p>Local Government Accountability Lab Nigeria (<strong>logalab.ng</strong>) was born from grassroots experiences in rural communities, where limited access to basic amenities revealed the critical role of local governance.</p>
     <p>Inspired by volunteer work in 2023 with the Youth Initiative for Good Governance and Development in Bayelsa State, we discovered widespread distrust in government. We are channeling that energy into constructive accountability to drive better governance.</p>
     <p><strong>Vision:</strong> To be Nigeria’s leading open, accessible, interactive, and simplified local government data hub supporting rural efforts for accountability, transparency, and grassroots development.</p>
+    <p><strong>Mission:</strong> To make complex local government data accessible and easy to understand for rural communities, empowering them with information that supports accountability, transparency, and civic engagement in grassroots development and local policy issues, while building a community of active, informed, and politically conscious youth committed to promoting local government accountability and advancing youth led initiatives within their communities.</p>
     <p><strong>One-Liner:</strong> Simplifying data for local accountability; Accountability for development.</p>
   </section>
 
@@ -216,7 +221,7 @@
       <div class="project"><h4>100 Rural Campaigns</h4><p>Sensitization across Bayelsa and Niger Delta communities</p></div>
       <div class="project"><h4>Train 1000 Youths</h4><p>In accountability and civic engagement fundamentals</p></div>
       <div class="project"><h4>Launch MVP Website & LocalBuddy</h4><p>Interactive platform with integrated AI chatbot</p></div>
-      <div class="project"><h4>Visualize Data for 774 LGAs</h4><p>Full national coverage with 500+ testers</p></div>
+      <div class="project"><h4>Visualize Data for Bayelsa State LGAs</h4><p>Full state coverage with 200+ testers</p></div>
       <div class="project"><h4>50 Multilingual Infographics</h4><p>Distributed to 10,000 citizens online and offline</p></div>
       <div class="project"><h4>Partner with Major Stakeholders</h4><p>Including BudgIT, CJID Udeme, Dataphyte, and others</p></div>
     </div>
@@ -435,7 +440,7 @@
     <a href="#">LocalBuddy AI</a>
     <a href="#">Rural Agents</a>
     <a href="#">Partnerships</a>
-    <a href="#">Contact</a>
+    <a href="#" id="contact-trigger" data-bs-toggle="modal" data-bs-target="#contactModal">Contact</a>
   </div>
   <p>&copy; 2026 logalab.ng • Local Government Accountability Lab Nigeria. All rights reserved.</p>
 </footer>
@@ -561,5 +566,54 @@
 </script>
 
 <!-- End of LocalBuddy Chatbot -->
+
+<!-- Contact Modal Popup-->
+<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="contactModalLabel">Get in Touch with logalab.ng</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Netlify Form -->
+        <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" netlify-recaptcha="true">
+          <input type="hidden" name="form-name" value="contact" />
+          <p hidden>
+            <label>Don't fill this out: <input name="bot-field" /></label>
+          </p>
+
+          <div class="mb-3">
+            <label for="name" class="form-label">Your Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="e.g., Omale" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="your@email.com" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="message" class="form-label">Your Message</label>
+            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Tell us how we can help..." required></textarea>
+          </div>
+
+          <div class="mb-3">
+            <div data-netlify-recaptcha="true"></div>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100">Send Message</button>
+        </form>
+
+        <div id="form-success" class="alert alert-success mt-3" style="display: none;">
+          Thank you! Your message has been sent. We'll get back to you soon.
+        </div>
+        <div id="form-error" class="alert alert-danger mt-3" style="display: none;">
+          Oops! Something went wrong. Please try again or email us directly at joysmartt83@gmail.com.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
