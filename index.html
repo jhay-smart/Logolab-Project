@@ -568,6 +568,7 @@
 <!-- End of LocalBuddy Chatbot -->
 
 <!-- Contact Modal Popup-->
+<!-- Contact Modal Popup -->
 <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -576,12 +577,13 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <!-- Netlify Form -->
-        <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" netlify-recaptcha="true">
-          <input type="hidden" name="form-name" value="contact" />
-          <p hidden>
-            <label>Don't fill this out: <input name="bot-field" /></label>
-          </p>
+        <!-- FormSubmit with your custom endpoint -->
+        <form action="https://formsubmit.co/el/degaya" method="POST">
+          <!-- Hidden fields for better email formatting -->
+          <input type="hidden" name="_subject" value="New Contact Message from logalab.ng Website">
+          <input type="hidden" name="_captcha" value="false"> <!-- Optional: disable reCAPTCHA if you don't want it -->
+          <!-- Optional: redirect after submit (create a simple thanks.html page or use a URL) -->
+          <!-- <input type="hidden" name="_next" value="https://your-site.com/thanks.html"> -->
 
           <div class="mb-3">
             <label for="name" class="form-label">Your Name</label>
@@ -595,25 +597,39 @@
 
           <div class="mb-3">
             <label for="message" class="form-label">Your Message</label>
-            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Tell us how we can help..." required></textarea>
-          </div>
-
-          <div class="mb-3">
-            <div data-netlify-recaptcha="true"></div>
+            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Tell us how we can help or ask any question..." required></textarea>
           </div>
 
           <button type="submit" class="btn btn-primary w-100">Send Message</button>
         </form>
 
+        <!-- Simple feedback messages -->
         <div id="form-success" class="alert alert-success mt-3" style="display: none;">
-          Thank you! Your message has been sent. We'll get back to you soon.
+          Thank you! Your message has been sent successfully. We'll get back to you soon.
         </div>
         <div id="form-error" class="alert alert-danger mt-3" style="display: none;">
-          Oops! Something went wrong. Please try again or email us directly at joysmartt83@gmail.com.
+          Oops! There was an issue sending your message. Please try again or email us directly at joysmartt83@gmail.com.
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<!-- Optional JS for better UX (show success without full redirect) -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('#contactModal form');
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        // FormSubmit handles the actual send via POST
+        // Show success message after a short delay (real submission happens)
+        setTimeout(() => {
+          document.getElementById('form-success').style.display = 'block';
+          form.reset(); // Clear fields
+        }, 1500); // Adjust delay if needed
+      });
+    }
+  });
+</script>
 </body>
 </html>
