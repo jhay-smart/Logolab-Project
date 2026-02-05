@@ -99,7 +99,7 @@
   <div class="container">
     <!-- Logo instead of text -->
     <a class="navbar-brand" href="#">
-      <img src="asset/logo1.png" alt="logalab.ng Logo" style="height: 45px; width: auto;"> <!-- Adjust height as needed -->
+      <img src="asset/Log.png" alt="Log.ng Logo" style="height: 45px; width: auto;"> <!-- Adjust height as needed -->
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
@@ -265,7 +265,7 @@
       </div>
       <div class="team-member">
         <img src="asset/Ghizlane.jpeg" alt="Ghizlane">
-        <br> <strong>Project Manager - </strong>Ghizlane
+        <br> <strong>Project Manager - </strong>Ghizlane Rehioui
       </div>
       <div class="team-member">
         <img src="asset/Benita.jpeg" alt="Benita">
@@ -422,15 +422,48 @@
 </section>
 
   <!-- Newsletter -->
-  <section class="newsletter section">
-    <h2>Stay Updated</h2>
-    <center><p>Get the latest local government data insights, project updates, and campaign alerts.</p></center>
-    <form>
-      <input type="email" placeholder="Enter your email" required>
-      <button type="submit">Subscribe</button>
-    </form>
-  </section>
+<section class="newsletter section">
+  <h2>Stay Updated</h2>
+  <p>Get the latest local government data insights, project updates, and campaign alerts.</p>
+  
+  <form id="subscribe-form" style="max-width: 500px; margin: 30px auto; display: flex; gap: 10px;">
+    <input type="email" id="email-input" placeholder="Enter your email" required style="flex: 1; padding: 12px; border-radius: 8px; border: 1px solid #ccc;">
+    <button type="submit" class="btn btn-primary" style="padding: 12px 30px; background: #0d47a1; color: white; border: none; border-radius: 8px; cursor: pointer;">
+      Subscribe
+    </button>
+  </form>
 
+  <!-- Thank You Message (hidden by default) -->
+  <div id="subscribe-thanks" class="alert alert-success mt-3" style="display: none; text-align: center; max-width: 500px; margin: 0 auto;">
+    Thanks for subscribing! We'll keep you updated with the latest from logalab.ng 😊
+  </div>
+</section>
+
+<!-- Tiny JS – Shows message for 3 seconds -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('subscribe-form');
+    const thanksMsg = document.getElementById('subscribe-thanks');
+    const emailInput = document.getElementById('email-input');
+
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault(); // No page reload
+        
+        if (emailInput.value.trim() !== '') {
+          // Show thank you
+          thanksMsg.style.display = 'block';
+          emailInput.value = ''; // Clear input
+          
+          // Hide after 3 seconds (3000 ms)
+          setTimeout(() => {
+            thanksMsg.style.display = 'none';
+          }, 3000);
+        }
+      });
+    }
+  });
+</script>
 </main>
 
 <!-- Footer -->
@@ -448,38 +481,35 @@
 <!-- Bootstrap JavaScript (required for slider) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- LocalBuddy Chatbot Widget -->
+<!-- LocalBuddy Chatbot – Clean English Only, Proactive & Polite -->
 <div id="chatbot-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">
-  <!-- Chat Toggle Button -->
   <button id="chat-toggle" style="width: 60px; height: 60px; border-radius: 50%; background: #0d47a1; color: white; border: none; font-size: 24px; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
     💬
   </button>
 
-  <!-- Chat Window (hidden by default) -->
   <div id="chat-window" style="display: none; width: 320px; height: 420px; background: white; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.25); overflow: hidden; margin-bottom: 15px; flex-direction: column;">
-    <!-- Header -->
     <div style="background: #0d47a1; color: white; padding: 12px; text-align: center; font-weight: bold; display: flex; justify-content: space-between; align-items: center;">
-      <span>LocalBuddy - Ask me anything!</span>
+      <span>LocalBuddy – Your Accountability Assistant</span>
       <button id="chat-close" style="background: none; border: none; color: white; font-size: 20px; cursor: pointer;">×</button>
     </div>
 
-    <!-- Messages Area -->
     <div id="chat-messages" style="flex: 1; padding: 15px; overflow-y: auto; background: #f9f9f9;">
-      <!-- Bot welcome message -->
       <div class="message bot" style="margin-bottom: 12px; padding: 10px 14px; background: #e3f2fd; border-radius: 12px 12px 12px 0; max-width: 85%; align-self: flex-start;">
-        Hello! I'm LocalBuddy, your AI assistant for local government accountability. 😊<br><br>Ask me about logalab.ng, data, accountability agents, or anything else!
+        Hello! I'm LocalBuddy 😊<br><br>Ask me anything about logalab.ng, local government data, accountability, voting, or how to get involved!
       </div>
     </div>
 
-    <!-- Input Area -->
     <div style="display: flex; padding: 10px; border-top: 1px solid #ddd; background: white;">
-      <input id="chat-input" type="text" placeholder="Type your message..." style="flex: 1; padding: 10px; border: 1px solid #ccc; border-radius: 20px; outline: none;">
+      <input id="chat-input" type="text" placeholder="Type your question..." style="flex: 1; padding: 10px; border: 1px solid #ccc; border-radius: 20px; outline: none;">
       <button id="chat-send" style="margin-left: 8px; padding: 10px 16px; background: #0d47a1; color: white; border: none; border-radius: 20px; cursor: pointer;">Send</button>
     </div>
   </div>
 </div>
 
-<!-- Chatbot JavaScript Logic -->
+<!-- Chatbot JavaScript – Clean English, Proactive, Polite Closings -->
 <script>
+  let userName = '';
+
   const toggleBtn = document.getElementById('chat-toggle');
   const closeBtn = document.getElementById('chat-close');
   const chatWindow = document.getElementById('chat-window');
@@ -487,7 +517,6 @@
   const input = document.getElementById('chat-input');
   const sendBtn = document.getElementById('chat-send');
 
-  // Toggle chat window
   toggleBtn.addEventListener('click', () => {
     chatWindow.style.display = chatWindow.style.display === 'flex' ? 'none' : 'flex';
   });
@@ -496,7 +525,6 @@
     chatWindow.style.display = 'none';
   });
 
-  // Send message on button click or Enter key
   sendBtn.addEventListener('click', sendMessage);
   input.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') sendMessage();
@@ -506,13 +534,16 @@
     const text = input.value.trim();
     if (!text) return;
 
-    // Add user message
     addMessage(text, 'user');
 
-    // Get bot response
+    // Detect name once
+    const nameMatch = text.match(/(?:my name is|i am|i'm|name is) (\w+)/i);
+    if (nameMatch) {
+      userName = nameMatch[1].trim();
+    }
+
     const response = getBotResponse(text.toLowerCase());
 
-    // Simulate typing delay
     setTimeout(() => {
       addMessage(response, 'bot');
     }, 800);
@@ -530,44 +561,84 @@
     msgDiv.style.alignSelf = type === 'user' ? 'flex-end' : 'flex-start';
     msgDiv.style.background = type === 'user' ? '#0d47a1' : '#e3f2fd';
     msgDiv.style.color = type === 'user' ? 'white' : '#333';
-
     msgDiv.innerHTML = text;
     messages.appendChild(msgDiv);
     messages.scrollTop = messages.scrollHeight;
   }
 
-  // Rule-based responses (expand this as needed!)
   function getBotResponse(input) {
-    if (input.includes('hello') || input.includes('hi') || input.includes('hey')) {
-      return "Hi there! 👋 How can LocalBuddy help you today?";
-    } 
-    else if (input.includes('what is logalab') || input.includes('logalab.ng')) {
-      return "logalab.ng is the Local Government Accountability Lab Nigeria — we simplify complex local government data so rural citizens can understand allocations, budgets, projects, and hold leaders accountable. Our mission: Accountability for development! 🌍";
-    } 
-    else if (input.includes('localbuddy') || input.includes('who are you')) {
-      return "I'm LocalBuddy! Your friendly AI assistant here to explain local government data in simple English or Pidgin. Ask me anything about LGAs, budgets, projects, or how to get involved. 😄";
-    } 
-    else if (input.includes('rural accountability') || input.includes('agents')) {
-      return "Rural Accountability Agents are trained local residents (especially youths 20-40) who monitor LGA activities, report projects in real-time, and help demand better governance. We plan to engage many across Nigeria!";
-    } 
-    else if (input.includes('data') || input.includes('budget') || input.includes('allocation')) {
-      return "We make local government data accessible and visual — tracking allocations from FAAC, project implementation, spending, and more across 774 LGAs. Soon you'll query it easily right here!";
-    } 
-    else if (input.includes('how') && input.includes('join') || input.includes('participate')) {
-      return "Great question! Follow our campaigns, become a Rural Accountability Agent, or partner with us. Stay tuned for trainings and sensitization programs — sign up for updates in the newsletter!";
-    } 
-    else if (input.includes('pidgin') || input.includes('language')) {
-      return "I fit yarn Pidgin well well! 😎 Just ask me for Pidgin explanation if you want.";
-    } 
-    else {
-      return "Hmm, I'm still learning... 😅 Can you ask about logalab.ng, local government data, accountability agents, or how to get involved? I'll try my best!";
+    const greeting = userName ? `Hi ${userName}` : 'Hi there';
+
+    // Polite closings & casual replies
+    if (input.includes('bye') || input.includes('good bye') || input.includes('goodbye') || input.includes('see you') || input.includes('later')) {
+      return `Goodbye! Thanks for chatting. Feel free to come back anytime if you have more questions about logalab.ng or local accountability. Take care! 😊`;
     }
+    if (input.includes('thanks') || input.includes('thank you') || input.includes('ok') || input.includes('okay') || input.includes('alright')) {
+      return `You're very welcome! Happy to help. If you have any more questions later, just say hi again. Have a great day!`;
+    }
+
+    // Greetings & name
+    if (input.includes('hi') || input.includes('hello') || input.includes('hey') || input.includes('my name is') || input.includes('i am') || input.includes("i'm")) {
+      return `${greeting}! How can I assist you today?`;
+    }
+
+    // Logalab overview
+    if (input.includes('what is logalab') || input.includes('logalab about')) {
+      return `${greeting}! Logalab.ng is the Local Government Accountability Lab Nigeria. We simplify complex local government data to make it accessible and understandable for citizens, especially in rural areas. Our goal is to help people track allocations, budgets, project implementation, and spending across Nigeria's 774 LGAs, so they can demand transparency and accountability. We offer interactive visualizations, the LocalBuddy AI assistant (that's me!), and training for Rural Accountability Agents. Would you like more details on any part?`;
+    }
+
+    // More information
+    if (input.includes('more information') || input.includes('tell me more') || input.includes('more details')) {
+      return `${greeting}! Logalab covers all 774 local government areas in Nigeria. We provide open data on FAAC allocations, budget breakdowns, project monitoring, and spending patterns. Through LocalBuddy, citizens can ask questions and get clear, simple answers in real time. We also train Rural Accountability Agents, run sensitization programs, and partner with civil society organizations to strengthen grassroots accountability. Which part would you like to explore further?`;
+    }
+
+    // Rural Accountability Agents
+    if (input.includes('rural accountability agents') || input.includes('agents') || input.includes('rural agents')) {
+      return `${greeting}! Rural Accountability Agents are trained young people (ages 20–40) living in local communities. They monitor LGA activities, report on project progress in real time, and advocate for better governance and reforms. We are actively building a strong network of these agents across Nigeria to drive lasting change. Are you interested in joining or learning how to become one?`;
+    }
+
+    // Joining / Partnering
+    if (input.includes('join') || input.includes('get involved') || input.includes('volunteer') || input.includes('participate') || input.includes('how can i partner') || input.includes('how to partner')) {
+      return `${greeting}! There are several ways to get involved:
+- Become a Rural Accountability Agent: We train and support youths in communities to monitor local government activities.
+- Partner as a CBO/CSO: We collaborate with community-based and civil society organizations on campaigns and data-driven advocacy.
+- Support our outreach: Join or organize sensitization programs in your area.
+To start, please use the Contact Us form on the website (click "Contact" in the footer) or email joysmartt83@gmail.com. We'd love to hear from you — what interests you most?`;
+    }
+
+    // Yes / Interested follow-up
+    if (input.includes('yes') || input.includes('interested') || input.includes('i want to join') || input.includes('count me in') || input.includes('sure')) {
+      return `${greeting}! That's great to hear! The best next step is to reach out directly. Please use the Contact Us form on the website (click "Contact" in the footer) or send an email to joysmartt83@gmail.com. Let us know a bit about yourself and your location and  we'll get back to you with details on becoming an agent, partnering, or joining an outreach. Looking forward to working together!`;
+    }
+
+    // Why vote even if it doesn't count
+    if (input.includes('why vote') || input.includes('why must i vote') || input.includes('vote does not count') || input.includes('vote no dey count')) {
+      return `${greeting}! Even when it feels like one vote doesn't make a difference, every vote adds to the collective power that can change leadership and outcomes. Low turnout and apathy allow poor governance to continue. When more people vote with full information — like the data logalab.ng provides on budgets and projects — we start electing accountable leaders. We've seen this in our outreaches: people who understand how funds are used become more confident and active voters. Your vote is your voice — would you like to learn more about how data makes voting more impactful?`;
+    }
+
+    // Reach out / Contact
+    if (input.includes('how can i reach out') || input.includes('contact') || input.includes('reach you') || input.includes('get in touch') || input.includes('email')) {
+      return `${greeting}! The easiest way is to use the Contact Us form right here on the website, just click "Contact" in the footer and fill it out. Your message goes straight to the team. You can also email us at joysmartt83@gmail.com. We're happy to answer questions, discuss partnerships, or talk about joining as an agent. How can we assist you today?`;
+    }
+
+    // Outreach / Events
+    if (input.includes('outreach') || input.includes('event') || input.includes('um6p') || input.includes('vote smart') || input.includes('bayelsa') || input.includes('sensitization') || input.includes('program')) {
+      return `${greeting}! We've conducted impactful outreaches, including the "Vote Smart" event at UM6P in Morocco for the Nigerian community there — an interactive simulation showing how data changes voting decisions. We've also run programs in secondary schools and youth groups across Bayelsa State (especially in Yenagoa) to educate on civic engagement, transparency, and informed voting. You can read the full recap and see photos in our blog section. Would you like to know more about upcoming events or how to host one in your area?`;
+    }
+
+    // Fallback – proactive & helpful
+    return `${greeting}! I'm here to help. Could you tell me more about what you're interested in? For example:
+What logalab.ng does, 
+Becoming a Rural Accountability Agent,
+How to partner with us,
+Why voting matters,
+Our outreach programs,
+Or anything else, just let me know!`;
   }
 </script>
 
 <!-- End of LocalBuddy Chatbot -->
 
-<!-- Contact Modal Popup-->
 <!-- Contact Modal Popup -->
 <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
@@ -577,13 +648,16 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <!-- FormSubmit with your custom endpoint -->
-        <form action="https://formsubmit.co/el/degaya" method="POST">
-          <!-- Hidden fields for better email formatting -->
-          <input type="hidden" name="_subject" value="New Contact Message from logalab.ng Website">
-          <input type="hidden" name="_captcha" value="false"> <!-- Optional: disable reCAPTCHA if you don't want it -->
-          <!-- Optional: redirect after submit (create a simple thanks.html page or use a URL) -->
-          <!-- <input type="hidden" name="_next" value="https://your-site.com/thanks.html"> -->
+        <!-- Web3Forms Contact Form -->
+        <form action="https://api.web3forms.com/submit" method="POST">
+          <!-- Your Access Key (keep this hidden!) -->
+          <input type="hidden" name="access_key" value="050452ff-cc8b-44ed-ac52-3117aaf4e41f">
+
+          <!-- Subject for the email you receive -->
+          <input type="hidden" name="subject" value="New Contact Message from logalab.ng Website">
+
+          <!-- Optional: From name for better email threading -->
+          <input type="hidden" name="from_name" value="logalab.ng Visitor">
 
           <div class="mb-3">
             <label for="name" class="form-label">Your Name</label>
@@ -597,23 +671,39 @@
 
           <div class="mb-3">
             <label for="message" class="form-label">Your Message</label>
-            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Tell us how we can help or ask any question..." required></textarea>
+            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Tell us how we can help..." required></textarea>
           </div>
 
           <button type="submit" class="btn btn-primary w-100">Send Message</button>
         </form>
 
-        <!-- Simple feedback messages -->
+        <!-- Success / Error Messages -->
         <div id="form-success" class="alert alert-success mt-3" style="display: none;">
           Thank you! Your message has been sent successfully. We'll get back to you soon.
         </div>
         <div id="form-error" class="alert alert-danger mt-3" style="display: none;">
-          Oops! There was an issue sending your message. Please try again or email us directly at joysmartt83@gmail.com.
+          Oops! There was an issue. Please try again or email us at joysmartt83@gmail.com.
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<!-- Optional JS for Success Message (shows after submit attempt) -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('#contactModal form');
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        // Web3Forms handles the send; show success after a delay
+        setTimeout(() => {
+          document.getElementById('form-success').style.display = 'block';
+          form.reset(); // Clear fields
+        }, 1500);
+      });
+    }
+  });
+</script>
 
 <!-- Optional JS for better UX (show success without full redirect) -->
 <script>
